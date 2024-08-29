@@ -32,5 +32,11 @@ The config file will be located in the config folder of your server, and will be
 * `app_version`: The version of the BlockBridge Discord bot. Do not edit this.
 * `api_entry_point` & `app_entry_point`: The entry points for the api and app sections of the BlockBridge Discord bot.You will need to edit them to mirror your discord bot config.
 
+For more information about configuration options, [click here](#configuration-).
 #### Launch the server again
 Once you have edited the config file, start the server again. The mod should now be running.
+
+## Configuration ##
+```json
+
+```

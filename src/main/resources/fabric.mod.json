@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "block_bridge",
+  "version": "${version}",
+  "name": "block_bridge_fabric",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/block_bridge/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "main": [
+      "me.quickscythe.block_bridge.BlockBridge"
+    ]
+  },
+  "mixins": [
+    "block_bridge.mixins.json",
+    {
+      "config": "block_bridge.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

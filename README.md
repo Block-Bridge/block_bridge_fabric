@@ -19,7 +19,7 @@ Upload the mod jar file to the mods folder of your server. Verify that the mod j
 On first launch you should generate a bunch of errors, this is normal. The mod will generate a config file and then stop. Edit the config file.
 
 #### Editing the config file
-The config file will be located in the config folder of your server, and will be named `blockbridge.json`. The config file will look like this:
+The config file will be located in the config folder of your server, and will be named `blockbridge.json`. These are the settings we need to verify before continuing:
 ```json
 {
   "app_version": "v1",

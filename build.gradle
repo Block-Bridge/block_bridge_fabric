@@ -22,6 +22,9 @@ loom {
 }
 
 repositories {
+    maven {
+        url = uri("https://repo.vanillaflux.com/repository/blockbridge/")
+    }
 }
 
 dependencies {
@@ -32,6 +35,9 @@ dependencies {
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+
+    implementation "me.quickscythe:block_bridge_api:${block_bridge_api_version}"
 
 }
 

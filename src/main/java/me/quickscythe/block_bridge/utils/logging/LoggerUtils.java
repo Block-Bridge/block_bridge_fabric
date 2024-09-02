@@ -1,7 +1,7 @@
 package me.quickscythe.block_bridge.utils.logging;
 
 
-import me.quickscythe.block_bridge.utils.BlockBridgeUtils;
+import me.quickscythe.block_bridge.utils.BlockBridgeFabricUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -10,7 +10,7 @@ public class LoggerUtils {
     private final Logger LOGGER;
 
     public LoggerUtils() {
-        LOGGER = LoggerFactory.getILoggerFactory().getLogger(BlockBridgeUtils.getMod().MOD_ID);
+        LOGGER = LoggerFactory.getILoggerFactory().getLogger(BlockBridgeFabricUtils.getMod().MOD_ID);
 
     }
 

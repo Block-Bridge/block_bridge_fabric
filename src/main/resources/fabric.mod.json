@@ -11,7 +11,7 @@
   "environment": "server",
   "entrypoints": {
     "main": [
-      "me.quickscythe.block_bridge.BlockBridge"
+      "me.quickscythe.block_bridge.BlockBridgeFabric"
     ]
   },
   "mixins": [

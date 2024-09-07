@@ -36,6 +36,7 @@ public class BlockBridgeFabric implements ModInitializer  {
 
         ServerListener mainListener = new ServerListener();
         ServerLifecycleEvents.SERVER_STOPPING.register(mainListener);
+        ServerLifecycleEvents.SERVER_STARTED.register(mainListener);
         ServerLifecycleEvents.SERVER_STARTING.register(mainListener);
         ServerPlayConnectionEvents.JOIN.register(mainListener);
         ServerPlayConnectionEvents.DISCONNECT.register(mainListener);

@@ -50,8 +50,10 @@ public class ServerListener implements ServerLifecycleEvents.ServerStopping, Ser
 
     @Override
     public void onServerStarted(MinecraftServer server) {
+        BlockBridgeFabricUtils.setServerInstance(server);
 
         BlockBridgeFabricUtils.getApi().appData("save_server?a=" + format(server.getName()) + "&b=" + server.getServerPort() + "&c=" + format(server.getServerMotd()) + "&d=" + server.getMaxPlayerCount() + "&e=" + server.getPlayerManager().getPlayerNames().length);
+
         JSONObject data = BlockBridgeFabricUtils.getApi().apiData("server_data?a=this");
         BlockBridgeFabricUtils.getLogger().log("Got server data from API. Data: " + data.toString());
         BlockBridgeFabricUtils.getApi().appData("status?a=online&b=" + data.getString("ip"));

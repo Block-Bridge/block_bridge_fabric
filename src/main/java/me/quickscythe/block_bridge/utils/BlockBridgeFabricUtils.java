@@ -2,6 +2,7 @@ package me.quickscythe.block_bridge.utils;
 
 import me.quickscythe.Api;
 import me.quickscythe.BlockBridgeApi;
+import me.quickscythe.api.BotPlugin;
 import me.quickscythe.block_bridge.BlockBridgeFabric;
 import me.quickscythe.block_bridge.utils.logging.LoggerUtils;
 
@@ -22,6 +23,9 @@ public class BlockBridgeFabricUtils {
         api = new BlockBridgeApi();
         api.init(false);
         config = new BlockBridgeConfig();
+        BotPlugin plugin = config.getConfig().getPlugin();
+        BlockBridgeDiscordUtils.getPluginLoader().registerPlugin(plugin);
+        BlockBridgeDiscordUtils.getPluginLoader().enablePlugin(plugin);
     }
 
     public static BlockBridgeConfig getConfigManager() {

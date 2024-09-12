@@ -5,6 +5,7 @@ import me.quickscythe.api.BotPlugin;
 public class BlockBridgeFabricPlugin extends BotPlugin {
     public BlockBridgeFabricPlugin() {
         setName("BlockBridgeFabric");
+
     }
 
     public void enable() {

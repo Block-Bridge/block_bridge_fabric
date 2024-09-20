@@ -15,6 +15,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 
+import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
@@ -41,7 +42,9 @@ public class ServerListener implements ServerLifecycleEvents.ServerStopping, Ser
 
     @Override
     public void onChatMessage(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
-        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("chat?a=" + sender.getUuid() + "&b=" + message.getSignedContent() + "&c=" + new Date().getTime()).toString(2));
+        String key = URLEncoder.encode(message.getSignedContent(), StandardCharsets.UTF_8);
+        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("chat?a=" + sender.getUuid() + "&b=" + key + "&c=" + new Date().getTime()).toString(2));
+
     }
 
     @Override

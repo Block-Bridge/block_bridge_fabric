@@ -18,6 +18,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
 
 public class ServerListener implements ServerLifecycleEvents.ServerStopping, ServerPlayConnectionEvents.Join, ServerPlayConnectionEvents.Disconnect, ServerMessageEvents.ChatMessage, ServerLifecycleEvents.ServerStarting, ServerLifecycleEvents.ServerStarted {
     @Override
@@ -33,14 +34,14 @@ public class ServerListener implements ServerLifecycleEvents.ServerStopping, Ser
 
     @Override
     public void onPlayDisconnect(ServerPlayNetworkHandler handler, MinecraftServer server) {
-        BlockBridgeFabricUtils.getApi().appData("save_player?a=" + handler.getPlayer().getName().getString() + "&b=" + handler.getPlayer().getUuid() + "&c=" + handler.getConnectionAddress().toString());
-        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("leave?a=" + handler.getPlayer().getName().getString()).toString() + "&b=" + handler.getPlayer().getUuid());
+        BlockBridgeFabricUtils.getApi().appData("save_player?a=" + handler.getPlayer().getUuid() + "&b=" + handler.getPlayer().getUuid() + "&c=" + handler.getConnectionAddress().toString());
+        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("leave?a=" + handler.getPlayer().getUuid()).toString(2));
 
     }
 
     @Override
     public void onChatMessage(SignedMessage message, ServerPlayerEntity sender, MessageType.Parameters params) {
-        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("chat?a=" + sender.getName().getString()).toString() + "&b=" + sender.getUuid() + "&c=" + message.getSignedContent());
+        BlockBridgeFabricUtils.getLogger().log(BlockBridgeFabricUtils.getApi().appData("chat?a=" + sender.getUuid() + "&b=" + message.getSignedContent() + "&c=" + new Date().getTime()).toString(2));
     }
 
     @Override
